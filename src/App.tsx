@@ -1,54 +1,55 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React from 'react';
 import './App.css';
 
-interface Credentials {
-  username: string;
-  password: string;
-}
-
-const App = () => {
-  const [credentials, setCredentials] = useState<Credentials>({ username: '', password: '' });
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    console.log(credentials);
-  };
+function App() {
+  const cargos = ['Gestor', 'Editor', 'Revisor'];
 
   return (
     <div className="App">
-      <div className="login-container">
-        <h1>ACESSE SUA CONTA</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label htmlFor="username">USUÁRIO</label>
-            <input
-              name="username"
-              type="text"
-              id="username"
-              value={credentials.username}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="password">SENHA</label>
-            <input
-              name="password"
-              type="password"
-              id="password"
-              value={credentials.password}
-              onChange={handleChange}
-            />
-          </div>
-          <button type="submit">ENTRAR</button>
-        </form>
-      </div>
+      <form className="user-form">
+        <h2>Cadastre um Colaborador</h2>
+
+        <div className="input-group">
+          <label htmlFor="nome">Nome:</label>
+          <input type="text" id="nome" placeholder="Digite o nome" />
+        </div>
+
+        <div className="input-group">
+          <label htmlFor="email">E-mail:</label>
+          <input type="email" id="email" placeholder="Digite o e-mail" />
+        </div>
+
+        <div className="input-group">
+          <label htmlFor="cpf">CPF:</label>
+          <input type="text" id="cpf" placeholder="Digite o CPF" />
+        </div>
+
+        <div className="input-group">
+          <label htmlFor="matricula">Matrícula:</label>
+          <input type="text" id="matricula" placeholder="Digite a matrícula" />
+        </div>
+
+        <div className="input-group">
+          <label htmlFor="cargo">Cargo:</label>
+          <select id="cargo">
+            {cargos.map((cargo) => (
+              <option key={cargo} value={cargo}>
+                {cargo}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="input-group">
+          <label htmlFor="senha">Senha:</label>
+          <input type="password" id="senha" placeholder="Digite a senha" />
+        </div>
+
+        <button type="submit" className="btn btn-primary">Cadastrar</button>
+      </form>
     </div>
   );
-};
+}
 
 export default App;
 

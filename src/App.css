@@ -1,22 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap');
-.input-group:first-of-type {
-  margin-top: 9rem; /* Ajuste este valor para alterar o espaço */
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 .App {
   background-color: #EC6A16;
   display: flex;
@@ -26,58 +7,77 @@ code {
   font-family: 'Jura', sans-serif;
 }
 
-.login-container {
-  justify-content: center;
-  background-color: white;
-  padding: 1rem 2rem; /* Ajuste o segundo valor para alterar o padding à direita e à esquerda */
-  border-radius: 20px;
+.user-form {
   text-align: center;
-  width: 410px;
-  height: 558px;
-}
-
-
-.login-container h1 {
-  color: #EC6A16;
-  font-size: 33px;
-  font-weight: bold;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #EC6A16;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .input-group {
   margin-bottom: 1rem;
-  margin-left: 2rem;
   text-align: left;
 }
 
 .input-group label {
   color: #EC6A16;
-  font-size: 25px;
+  font-size: 16px;
   font-weight: bold;
-  
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  display: block;
 }
 
 input {
-  width: 332px;
+  width: calc(100% - 10px);
   height: 44px;
   padding: 0.4rem;
-  margin-top: 1rem;
   border-radius: 4px;
   border: 1px solid #ccc;
   background-color: #f2f2f2;
-  
+}
+
+select {
+  width: calc(100% - 10px);
+  height: 44px;
+  padding: 0.4rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  appearance: none; /* Remove default dropdown arrow */
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none; /* Remove default focus outline */
+}
+
+select::-ms-expand {
+  display: none; /* Remove default IE10 arrow */
+}
+
+select::-webkit-scrollbar {
+  width: 0 !important; /* Hide scrollbar on Chrome, Safari, Edge */
 }
 
 button {
-  width: 98px;
-  height: 30px;
-  padding: rem;
+  width: 150px;
+  height: 40px;
+  padding: 0.8rem;
   border: none;
   border-radius: 4px;
-  background-color: #f2f2f2;
-  color: black;
+  background-color: #EC6A16; /* Cor do botão #EC6A16 */
+  color: white;
   cursor: pointer;
-  margin-top: 3rem;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+  margin-top: 20px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
 }

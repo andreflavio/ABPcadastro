@@ -1,5 +1,5 @@
 .App {
-  background-color: #EC6A16;
+  /* Remova o estilo background-color aqui */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,10 +7,28 @@
   font-family: 'Jura', sans-serif;
 }
 
+/* index.css */
+
+body {
+  background-color: #EC6A16;
+  /* Altera o fundo de toda a página para laranja */
+  height: 100vh;
+  font-family: 'Jura', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
 .user-form {
   text-align: center;
   max-width: 400px;
-  margin: 0 auto;
+  max-height: auto;
+  margin-bottom: 0rem;
+  margin-top: 10rem;
   padding: 20px;
   border: 2px solid #EC6A16;
   border-radius: 8px;
@@ -48,20 +66,24 @@ select {
   border-radius: 4px;
   border: 1px solid #ccc;
   background-color: #f2f2f2;
-  appearance: none; /* Remove default dropdown arrow */
+  appearance: none;
+  /* Remove default dropdown arrow */
   cursor: pointer;
 }
 
 select:focus {
-  outline: none; /* Remove default focus outline */
+  outline: none;
+  /* Remove default focus outline */
 }
 
 select::-ms-expand {
-  display: none; /* Remove default IE10 arrow */
+  display: none;
+  /* Remove default IE10 arrow */
 }
 
 select::-webkit-scrollbar {
-  width: 0 !important; /* Hide scrollbar on Chrome, Safari, Edge */
+  width: 0 !important;
+  /* Hide scrollbar on Chrome, Safari, Edge */
 }
 
 button {
@@ -70,7 +92,8 @@ button {
   padding: 0.8rem;
   border: none;
   border-radius: 4px;
-  background-color: #EC6A16; /* Cor do botão #EC6A16 */
+  background-color: #EC6A16;
+  /* Cor do botão #EC6A16 */
   color: white;
   cursor: pointer;
   margin-top: 20px;

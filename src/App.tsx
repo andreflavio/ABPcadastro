@@ -1,40 +1,87 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
-function App() {
-  const cargos = ['Gestor', 'Editor', 'Revisor'];
+interface Colaborador {
+  nome: string;
+  email: string;
+  cpf: string;
+  matricula: string;
+  cargo: string;
+  senha: string;
+}
+
+const cargos: string[] = ['Gestor', 'Editor', 'Revisor'];
+
+function App(): JSX.Element {
+  const [nome, setNome] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [cpf, setCpf] = useState<string>('');
+  const [matricula, setMatricula] = useState<string>('');
+  const [cargo, setCargo] = useState<string>(cargos[0]); // Cargo padrão
+  const [senha, setSenha] = useState<string>('');
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const dados: Colaborador = { nome, email, cpf, matricula, cargo, senha };
+    // Envie os dados para API, banco de dados ou outro lugar aqui
+    console.log('Dados do formulário:', dados);
+  };
 
   return (
     <div className="App">
-      <form className="user-form">
+      <form className="user-form" onSubmit={handleSubmit}>
         <h2>Cadastre um Colaborador</h2>
 
         <div className="input-group">
           <label htmlFor="nome">Nome:</label>
-          <input type="text" id="nome" placeholder="Digite o nome" />
+          <input
+            type="text"
+            id="nome"
+            placeholder="Digite o nome"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+          />
         </div>
 
         <div className="input-group">
           <label htmlFor="email">E-mail:</label>
-          <input type="email" id="email" placeholder="Digite o e-mail" />
+          <input
+            type="email"
+            id="email"
+            placeholder="Digite o e-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
 
         <div className="input-group">
           <label htmlFor="cpf">CPF:</label>
-          <input type="text" id="cpf" placeholder="Digite o CPF" />
+          <input
+            type="text"
+            id="cpf"
+            placeholder="Digite o CPF"
+            value={cpf}
+            onChange={(e) => setCpf(e.target.value)}
+          />
         </div>
 
         <div className="input-group">
           <label htmlFor="matricula">Matrícula:</label>
-          <input type="text" id="matricula" placeholder="Digite a matrícula" />
+          <input
+            type="text"
+            id="matricula"
+            placeholder="Digite a matrícula"
+            value={matricula}
+            onChange={(e) => setMatricula(e.target.value)}
+          />
         </div>
 
         <div className="input-group">
           <label htmlFor="cargo">Cargo:</label>
-          <select id="cargo">
-            {cargos.map((cargo) => (
-              <option key={cargo} value={cargo}>
-                {cargo}
+          <select id="cargo" value={cargo} onChange={(e) => setCargo(e.target.value)}>
+            {cargos.map((cargoOption) => (
+              <option key={cargoOption} value={cargoOption}>
+                {cargoOption}
               </option>
             ))}
           </select>
@@ -42,7 +89,13 @@ function App() {
 
         <div className="input-group">
           <label htmlFor="senha">Senha:</label>
-          <input type="password" id="senha" placeholder="Digite a senha" />
+          <input
+            type="password"
+            id="senha"
+            placeholder="Digite a senha"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+          />
         </div>
 
         <button type="submit" className="btn btn-primary">Cadastrar</button>

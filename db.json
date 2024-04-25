@@ -1,0 +1,14 @@
+{
+    "colaboradores": [
+      {
+        "id": 1,
+        "nome": "João da Silva",
+        "email": "joao.silva@example.com",
+        "cpf": "12345678900",
+        "matricula": "123456",
+        "cargo": "Gerente",
+        "senha": "senha123"
+      },
+      // Add more mock data as needed
+    ]
+  }
